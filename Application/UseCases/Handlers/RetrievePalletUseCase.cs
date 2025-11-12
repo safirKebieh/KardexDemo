@@ -13,17 +13,15 @@ namespace Application.UseCases
         private readonly IWarehouseInventory _inventory;
         private readonly IWarehouseIo _io;
         private readonly IClock _clock;
-        private readonly ICraneAddressEncoder _encoder;
 
         private const int CraneIdleSlot = 55; // نفس قيمة الـ Store
         private const int Rows = 6;
         private const int Cols = 9;           // 6 x 9 = 54 slots
 
-        public RetrievePalletUseCase(IWarehouseIo io, IWarehouseInventory inventory, ICraneAddressEncoder encoder, IClock clock)
+        public RetrievePalletUseCase(IWarehouseIo io, IWarehouseInventory inventory, IClock clock)
         {
             _io = io;
             _inventory = inventory;
-            _encoder = encoder;
             _clock = clock;
         }
 

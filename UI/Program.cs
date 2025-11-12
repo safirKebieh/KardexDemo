@@ -39,10 +39,6 @@ namespace UI
             services.AddSingleton<IWarehouseInventory>(
                 sp => new WarehouseInventory(rowCount: 6, columnCount: 9));
 
-            // Address Encoder: Numerical 
-            services.AddSingleton<ICraneAddressEncoder>(
-                sp => new NumericalAddressEncoder(rowCount: 6, columnCount: 9));
-
             services.AddSingleton<IStorePalletUseCase, StorePalletUseCase>();
             services.AddSingleton<IRetrievePalletUseCase, RetrievePalletUseCase>();
 

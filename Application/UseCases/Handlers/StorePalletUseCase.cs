@@ -13,18 +13,18 @@ namespace Application.UseCases.Handlers
         private readonly IWarehouseInventory _inventory;
         private readonly IWarehouseIo _io;
         private readonly IClock _clock;
-        private readonly ICraneAddressEncoder _encoder;
+        //private readonly ICraneAddressEncoder _encoder;
 
         // keep same constants as your UC
         private const int CraneIdleSlot = 55; // Factory I/O idle/home
         private const int Rows = 6;
         private const int Cols = 9;           // 6 x 9 = 54 slots
 
-        public StorePalletUseCase(IWarehouseIo io, IWarehouseInventory inventory, ICraneAddressEncoder encoder, IClock clock)
+        public StorePalletUseCase(IWarehouseIo io, IWarehouseInventory inventory,/* ICraneAddressEncoder encoder,*/ IClock clock)
         {
             _io = io;
             _inventory = inventory;
-            _encoder = encoder;
+            //_encoder = encoder;
             _clock = clock;
         }
 

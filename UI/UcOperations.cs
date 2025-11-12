@@ -1,5 +1,4 @@
-﻿using Domain;
-using Application.UseCases;
+﻿using Application.UseCases;
 
 namespace UI
 {
@@ -15,7 +14,6 @@ namespace UI
             _store = store;
             _retrieve = retrieve;
 
-            cmbMode.Items.AddRange(new object[] { "Store", "Retrieve" });
             cmbMode.SelectedIndex = 0;
             txtLog.ReadOnly = true;
         }
@@ -36,15 +34,12 @@ namespace UI
             AppendLog("Start clicked"); // للتأكد أن الحدث موصول
 
             btnStart.Enabled = false;
-            btnCancel.Enabled = true;
 
             try
             {
                 _cts?.Dispose();
                 _cts = new CancellationTokenSource();
 
-                // لو PalletId عندك في namespace اسمه Domain، غيّر السطر القادم إلى: var pallet = new Domain.PalletId(...)
-                var pallet = new Domain.PalletId(txtPallet.Text?.Trim() ?? "");
                 var slotNumber = (int)numSlot.Value;
                 var progress = new Progress<string>(AppendLog);
 
@@ -53,13 +48,13 @@ namespace UI
 
                 if (string.Equals(mode, "Retrieve", StringComparison.OrdinalIgnoreCase))
                 {
-                    AppendLog($"Retrieve started. Pallet={pallet}, Slot={slotNumber}");
-                    ok = await _retrieve.RunAsync(pallet, slotNumber, progress, _cts.Token);
+                    AppendLog($"Retrieve started. Slot={slotNumber}");
+                    ok = await _retrieve.RunAsync(slotNumber, progress, _cts.Token);
                 }
                 else
                 {
-                    AppendLog($"Store started. Pallet={pallet}, Slot={slotNumber}");
-                    ok = await _store.RunAsync(pallet, slotNumber, progress, _cts.Token);
+                    AppendLog($"Store started. Slot={slotNumber}");
+                    ok = await _store.RunAsync(slotNumber, progress, _cts.Token);
                 }
 
                 AppendLog(ok ? "Completed successfully." : "Completed with errors.");
@@ -75,13 +70,7 @@ namespace UI
             finally
             {
                 btnStart.Enabled = true;
-                btnCancel.Enabled = false;
             }
-        }
-
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-            _cts?.Cancel();
         }
     }
 }

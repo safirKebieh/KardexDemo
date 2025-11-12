@@ -1,12 +1,8 @@
 ﻿using Application.Ports;              // IClock
 using Application.Warehouse;          // IWarehouseInventory, ICraneAddressEncoder
 using Application.Warehouse.Io;       // IWarehouseIo, OutputCommand, RegisterWrites
-using Domain;                // أو Domain; حسب مشروعك
-using System;
-using System.Threading;
-using System.Threading.Tasks;
 
-namespace Application.UseCases
+namespace Application.UseCases.Handlers
 {
     public sealed class RetrievePalletUseCase : IRetrievePalletUseCase
     {
@@ -25,7 +21,7 @@ namespace Application.UseCases
             _clock = clock;
         }
 
-        public async Task<bool> RunAsync(PalletId pallet, int slotNumber, IProgress<string>? progress, CancellationToken ct)
+        public async Task<bool> RunAsync(int slotNumber, IProgress<string>? progress, CancellationToken ct)
         {
             void Log(string m) => progress?.Report(m);
 

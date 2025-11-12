@@ -1,10 +1,7 @@
 ﻿using Application.Ports;              // IClock
 using Application.Warehouse;          // IWarehouseInventory, ICraneAddressEncoder
 using Application.Warehouse.Io;       // IWarehouseIo, OutputCommand, RegisterWrites
-using Domain;                  // ⬅ if PalletId is in `Domain`, change to: using Domain;
-using System;
-using System.Threading;
-using System.Threading.Tasks;
+
 
 namespace Application.UseCases.Handlers
 {
@@ -28,7 +25,7 @@ namespace Application.UseCases.Handlers
             _clock = clock;
         }
 
-        public async Task<bool> RunAsync(PalletId pallet, int slotNumber, IProgress<string>? progress, CancellationToken ct)
+        public async Task<bool> RunAsync(int slotNumber, IProgress<string>? progress, CancellationToken ct)
         {
             void Log(string m) => progress?.Report(m);
 

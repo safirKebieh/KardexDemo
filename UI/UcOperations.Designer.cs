@@ -29,13 +29,10 @@
         private void InitializeComponent()
         {
             cmbMode = new ComboBox();
-            txtPallet = new TextBox();
             numSlot = new NumericUpDown();
             btnStart = new Button();
-            btnCancel = new Button();
             txtLog = new TextBox();
             label1 = new Label();
-            label2 = new Label();
             label3 = new Label();
             label4 = new Label();
             ((System.ComponentModel.ISupportInitialize)numSlot).BeginInit();
@@ -44,17 +41,11 @@
             // cmbMode
             // 
             cmbMode.FormattingEnabled = true;
+            cmbMode.Items.AddRange(new object[] { "Store", "Retrieve" });
             cmbMode.Location = new Point(64, 206);
             cmbMode.Name = "cmbMode";
             cmbMode.Size = new Size(121, 23);
             cmbMode.TabIndex = 0;
-            // 
-            // txtPallet
-            // 
-            txtPallet.Location = new Point(331, 128);
-            txtPallet.Name = "txtPallet";
-            txtPallet.Size = new Size(100, 23);
-            txtPallet.TabIndex = 1;
             // 
             // numSlot
             // 
@@ -73,16 +64,6 @@
             btnStart.UseVisualStyleBackColor = true;
             btnStart.Click += btnStart_Click;
             // 
-            // btnCancel
-            // 
-            btnCancel.Location = new Point(248, 45);
-            btnCancel.Name = "btnCancel";
-            btnCancel.Size = new Size(119, 31);
-            btnCancel.TabIndex = 3;
-            btnCancel.Text = "Cancel";
-            btnCancel.UseVisualStyleBackColor = true;
-            btnCancel.Click += btnCancel_Click;
-            // 
             // txtLog
             // 
             txtLog.Location = new Point(627, 116);
@@ -99,15 +80,6 @@
             label1.Size = new Size(93, 15);
             label1.TabIndex = 5;
             label1.Text = "Store or Retrieve";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(335, 110);
-            label2.Name = "label2";
-            label2.Size = new Size(43, 15);
-            label2.TabIndex = 6;
-            label2.Text = "Palette";
             // 
             // label3
             // 
@@ -133,13 +105,10 @@
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(label4);
             Controls.Add(label3);
-            Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(txtLog);
-            Controls.Add(btnCancel);
             Controls.Add(btnStart);
             Controls.Add(numSlot);
-            Controls.Add(txtPallet);
             Controls.Add(cmbMode);
             Name = "UcOperations";
             Size = new Size(1107, 575);
@@ -151,13 +120,10 @@
         #endregion
 
         private ComboBox cmbMode;
-        private TextBox txtPallet;
         private NumericUpDown numSlot;
         private Button btnStart;
-        private Button btnCancel;
         private TextBox txtLog;
         private Label label1;
-        private Label label2;
         private Label label3;
         private Label label4;
     }

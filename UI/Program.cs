@@ -39,9 +39,6 @@ namespace UI
             services.AddSingleton<AuthForm>();
             services.AddTransient<MainShellForm>();
 
-            //// Factory 
-            //services.AddSingleton<Func<MainShellForm>>(sp => () => sp.GetRequiredService<MainShellForm>());
-
             // Inventory (6×9)
             services.AddSingleton<IWarehouseInventory>(
                 sp => new WarehouseInventory(rowCount: 6, columnCount: 9));

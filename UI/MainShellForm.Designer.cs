@@ -191,7 +191,6 @@
             btnRetrieve.TabIndex = 2;
             btnRetrieve.Text = "Retrieve";
             btnRetrieve.UseVisualStyleBackColor = false;
-            btnRetrieve.Click += btnRetrieve_Click;
             // 
             // btnConfig
             // 
@@ -226,7 +225,6 @@
             btnStore.TabIndex = 0;
             btnStore.Text = "Storage Process";
             btnStore.UseVisualStyleBackColor = false;
-            btnStore.Click += btnStore_Click;
             // 
             // panelContent
             // 
@@ -252,7 +250,6 @@
             Name = "MainShellForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "MainShellForm";
-            Load += MainShellForm_Load;
             panelHeader.ResumeLayout(false);
             panelHeader.PerformLayout();
             panelStatus.ResumeLayout(false);

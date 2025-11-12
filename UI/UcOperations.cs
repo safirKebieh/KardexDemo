@@ -1,0 +1,87 @@
+﻿using Domain;
+using Application.UseCases;
+
+namespace UI
+{
+    public partial class UcOperations : UserControl
+    {
+        private readonly IStorePalletUseCase _store;
+        private readonly IRetrievePalletUseCase _retrieve;
+        private CancellationTokenSource? _cts;
+
+        public UcOperations(IStorePalletUseCase store, IRetrievePalletUseCase retrieve)
+        {
+            InitializeComponent();
+            _store = store;
+            _retrieve = retrieve;
+
+            cmbMode.Items.AddRange(new object[] { "Store", "Retrieve" });
+            cmbMode.SelectedIndex = 0;
+            txtLog.ReadOnly = true;
+        }
+
+        private void AppendLog(string msg)
+        {
+            if (txtLog.IsDisposed) return;
+            if (txtLog.InvokeRequired)
+            {
+                txtLog.Invoke(new Action<string>(AppendLog), msg);
+                return;
+            }
+            txtLog.AppendText($"[{DateTime.Now:HH:mm:ss}] {msg}{Environment.NewLine}");
+        }
+
+        private async void btnStart_Click(object sender, EventArgs e)
+        {
+            AppendLog("Start clicked"); // للتأكد أن الحدث موصول
+
+            btnStart.Enabled = false;
+            btnCancel.Enabled = true;
+
+            try
+            {
+                _cts?.Dispose();
+                _cts = new CancellationTokenSource();
+
+                // لو PalletId عندك في namespace اسمه Domain، غيّر السطر القادم إلى: var pallet = new Domain.PalletId(...)
+                var pallet = new Domain.PalletId(txtPallet.Text?.Trim() ?? "");
+                var slotNumber = (int)numSlot.Value;
+                var progress = new Progress<string>(AppendLog);
+
+                bool ok;
+                var mode = cmbMode.SelectedItem?.ToString();
+
+                if (string.Equals(mode, "Retrieve", StringComparison.OrdinalIgnoreCase))
+                {
+                    AppendLog($"Retrieve started. Pallet={pallet}, Slot={slotNumber}");
+                    ok = await _retrieve.RunAsync(pallet, slotNumber, progress, _cts.Token);
+                }
+                else
+                {
+                    AppendLog($"Store started. Pallet={pallet}, Slot={slotNumber}");
+                    ok = await _store.RunAsync(pallet, slotNumber, progress, _cts.Token);
+                }
+
+                AppendLog(ok ? "Completed successfully." : "Completed with errors.");
+            }
+            catch (OperationCanceledException)
+            {
+                AppendLog("Operation canceled.");
+            }
+            catch (Exception ex)
+            {
+                AppendLog("Error: " + ex.Message);
+            }
+            finally
+            {
+                btnStart.Enabled = true;
+                btnCancel.Enabled = false;
+            }
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            _cts?.Cancel();
+        }
+    }
+}

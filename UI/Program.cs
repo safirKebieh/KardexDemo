@@ -1,4 +1,6 @@
 using Application.Ports;
+using Application.UseCases;
+using Application.UseCases.Handlers;
 using Application.Warehouse;
 using Application.Warehouse.Io;
 using Infrastructure.Communication;
@@ -41,10 +43,13 @@ namespace UI
             services.AddSingleton<ICraneAddressEncoder>(
                 sp => new NumericalAddressEncoder(rowCount: 6, columnCount: 9));
 
-            // UserControls (transient)
-            services.AddTransient<UcStorageProcess>();         
+            services.AddSingleton<IStorePalletUseCase, StorePalletUseCase>();
+            services.AddSingleton<IRetrievePalletUseCase, RetrievePalletUseCase>();
+
+            // UserControls (transient)       
             services.AddTransient<UcManualConfig>();
-            services.AddTransient<UcRetrievePallet>();
+            services.AddTransient<UcOperations>();
+
 
             var provider = services.BuildServiceProvider();
 

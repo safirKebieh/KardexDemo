@@ -27,19 +27,9 @@ namespace UI
             panelContent.ResumeLayout();
         }
 
-        private void btnStore_Click(object sender, EventArgs e)
-        {
-            Navigate<UcStorageProcess>(btnStore);
-        }
-
         private void btnConfig_Click(object sender, EventArgs e)
         {
-            Navigate<UcManualConfig>(btnConfig);
-        }
-
-        private void btnRetrieve_Click(object sender, EventArgs e)
-        {
-            Navigate<UcRetrievePallet>(btnRetrieve);
+            Navigate<UcOperations>(btnConfig);
         }
 
         private void btnSignOut_Click(object sender, EventArgs e)
@@ -75,11 +65,6 @@ namespace UI
 
                 MessageBox.Show($"Error: {ex.Message}");
             }
-        }
-
-        private void MainShellForm_Load(object sender, EventArgs e)
-        {
-            Navigate<UcStorageProcess>(btnStore);
         }
 
         private void SetActive(Button activeBtn)

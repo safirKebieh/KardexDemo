@@ -6,13 +6,14 @@ using Application.Warehouse.Io;
 using Infrastructure.Communication;
 using Infrastructure.Time;
 using Infrastructure.Warehouse;
+
 using Microsoft.Extensions.DependencyInjection;
 using WinFormsApp = System.Windows.Forms.Application;
 
 
 namespace UI
 {
-    internal static class Program
+    public static class Program
     {
         /// <summary>
         ///  The main entry point for the application.
@@ -27,6 +28,12 @@ namespace UI
             services.AddSingleton<IClock, SystemClock>();
             services.AddSingleton<IWarehouseIo, ModbusWarehouseIo>();
 
+            services.AddSingleton<IStorePalletUseCase, StorePalletUseCase>();
+            services.AddSingleton<IRetrievePalletUseCase, RetrievePalletUseCase>();
+
+            // UserControls (transient)       
+            services.AddTransient<UcManualConfig>();
+            services.AddTransient<UcOperations>();
 
             // Forms
             services.AddSingleton<AuthForm>();
@@ -38,13 +45,6 @@ namespace UI
             // Inventory (6×9)
             services.AddSingleton<IWarehouseInventory>(
                 sp => new WarehouseInventory(rowCount: 6, columnCount: 9));
-
-            services.AddSingleton<IStorePalletUseCase, StorePalletUseCase>();
-            services.AddSingleton<IRetrievePalletUseCase, RetrievePalletUseCase>();
-
-            // UserControls (transient)       
-            services.AddTransient<UcManualConfig>();
-            services.AddTransient<UcOperations>();
 
 
             var provider = services.BuildServiceProvider();

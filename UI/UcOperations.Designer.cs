@@ -35,6 +35,7 @@
             label1 = new Label();
             label3 = new Label();
             label4 = new Label();
+            btnQuitterung = new Button();
             ((System.ComponentModel.ISupportInitialize)numSlot).BeginInit();
             SuspendLayout();
             // 
@@ -99,6 +100,16 @@
             label4.TabIndex = 8;
             label4.Text = "Log";
             // 
+            // btnQuitterung
+            // 
+            btnQuitterung.Location = new Point(335, 45);
+            btnQuitterung.Name = "btnQuitterung";
+            btnQuitterung.Size = new Size(143, 31);
+            btnQuitterung.TabIndex = 3;
+            btnQuitterung.Text = "Acknowledgment";
+            btnQuitterung.UseVisualStyleBackColor = true;
+            btnQuitterung.Click += btnQuitterung_Click;
+            // 
             // UcOperations
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -107,6 +118,7 @@
             Controls.Add(label3);
             Controls.Add(label1);
             Controls.Add(txtLog);
+            Controls.Add(btnQuitterung);
             Controls.Add(btnStart);
             Controls.Add(numSlot);
             Controls.Add(cmbMode);
@@ -126,5 +138,6 @@
         private Label label1;
         private Label label3;
         private Label label4;
+        private Button btnQuitterung;
     }
 }

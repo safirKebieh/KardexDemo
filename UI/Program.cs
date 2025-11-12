@@ -31,7 +31,9 @@ namespace UI
             services.AddSingleton<IStorePalletUseCase, StorePalletUseCase>();
             services.AddSingleton<IRetrievePalletUseCase, RetrievePalletUseCase>();
 
-            // UserControls (transient)       
+            services.AddSingleton<IResetOutputsUseCase, ResetOutputsUseCase>();
+
+            // UserControls      
             services.AddTransient<UcManualConfig>();
             services.AddTransient<UcOperations>();
 
@@ -39,10 +41,9 @@ namespace UI
             services.AddSingleton<AuthForm>();
             services.AddTransient<MainShellForm>();
 
-            // Inventory (6×9)
+            // Inventory
             services.AddSingleton<IWarehouseInventory>(
                 sp => new WarehouseInventory(rowCount: 6, columnCount: 9));
-
 
             var provider = services.BuildServiceProvider();
 

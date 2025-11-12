@@ -15,18 +15,6 @@ namespace UI
             InitializeComponent();
         }
 
-        private void LoadContent(UserControl uc)
-        {
-            foreach (Control c in panelContent.Controls)
-                c.Dispose();                    
-
-            panelContent.Controls.Clear();
-            uc.Dock = DockStyle.Fill;
-            panelContent.Controls.Add(uc);
-
-            panelContent.ResumeLayout();
-        }
-
         private void btnConfig_Click(object sender, EventArgs e)
         {
             Navigate<UcOperations>(btnConfig);
@@ -34,7 +22,7 @@ namespace UI
 
         private void btnSignOut_Click(object sender, EventArgs e)
         {
-            this.Close(); // AuthForm will Show() itself via its handler
+            this.Close();
         }
 
         private void panelHeader_MouseDown(object sender, MouseEventArgs e)
@@ -66,6 +54,22 @@ namespace UI
                 MessageBox.Show($"Error: {ex.Message}");
             }
         }
+        private void Navigate<T>(Button btn) where T : UserControl
+        {
+            LoadContent(_sp.GetRequiredService<T>());
+            SetActive(btn);
+        }
+        private void LoadContent(UserControl uc)
+        {
+            foreach (Control c in panelContent.Controls)
+                c.Dispose();
+
+            panelContent.Controls.Clear();
+            uc.Dock = DockStyle.Fill;
+            panelContent.Controls.Add(uc);
+
+            panelContent.ResumeLayout();
+        }
 
         private void SetActive(Button activeBtn)
         {
@@ -74,12 +78,6 @@ namespace UI
             btnRetrieve.BackColor = UiTheme.ButtonNormal;
 
             activeBtn.BackColor = UiTheme.ButtonActive;
-        }
-
-        private void Navigate<T>(Button btn) where T : UserControl
-        {
-            LoadContent(_sp.GetRequiredService<T>());
-            SetActive(btn);
         }
     }
 }

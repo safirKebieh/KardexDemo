@@ -1,5 +1,4 @@
-﻿
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 
 namespace UI
 {
@@ -61,7 +60,7 @@ namespace UI
             txtUser.Clear();
             txtPass.Clear();
             lblError.Visible = false;
-            this.ActiveControl = null;  // remove focus from textboxes
+            this.ActiveControl = null;
         }
     }
 }

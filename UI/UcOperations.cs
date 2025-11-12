@@ -1,4 +1,5 @@
 ﻿using Application.UseCases;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace UI
 {
@@ -6,16 +7,18 @@ namespace UI
     {
         private readonly IStorePalletUseCase _store;
         private readonly IRetrievePalletUseCase _retrieve;
+        private readonly IResetOutputsUseCase _reset;
         private CancellationTokenSource? _cts;
 
-        public UcOperations(IStorePalletUseCase store, IRetrievePalletUseCase retrieve)
+        public UcOperations(IStorePalletUseCase store, IRetrievePalletUseCase retrieve, IResetOutputsUseCase reset)
         {
             InitializeComponent();
             _store = store;
             _retrieve = retrieve;
 
             cmbMode.SelectedIndex = 0;
-            txtLog.ReadOnly = true;
+            txtLog.ReadOnly = true; 
+            _reset = reset;
         }
 
         private void AppendLog(string msg)
@@ -70,6 +73,29 @@ namespace UI
             finally
             {
                 btnStart.Enabled = true;
+            }
+        }
+
+        private async void btnQuitterung_Click(object sender, EventArgs e)
+        {
+            AppendLog("Quitterung clicked");
+
+            btnQuitterung.Enabled = false;
+
+            try
+            {
+                // Ask the new use case to execute the reset logic
+                var progress = new Progress<string>(AppendLog);
+                await _reset.RunAsync(progress, _cts?.Token ?? CancellationToken.None);
+                AppendLog("✅ All outputs reset successfully.");
+            }
+            catch (Exception ex)
+            {
+                AppendLog($"❌ Quitterung failed: {ex.Message}");
+            }
+            finally
+            {
+                btnQuitterung.Enabled = true;
             }
         }
     }

@@ -1,15 +1,14 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿
+using Microsoft.Extensions.DependencyInjection;
 
 namespace UI
 {
-
     public partial class AuthForm : Form
     {
-        private readonly Func<MainShellForm> _mainFactory;
-
-        public AuthForm(Func<MainShellForm> mainFactory)
+        private readonly IServiceProvider _sp;
+        public AuthForm(IServiceProvider sp)
         {
-            _mainFactory = mainFactory;
+            _sp = sp;
             InitializeComponent();
             DoubleBuffered = true;
         }
@@ -23,7 +22,7 @@ namespace UI
                 return;
             }
 
-            // TODO: real auth later
+            // Simple hardcoded login check
             var isOk = (txtUser.Text == "admin" && txtPass.Text == "1234");
             if (!isOk)
             {
@@ -34,11 +33,10 @@ namespace UI
 
             lblError.Visible = false;
 
-            var main = _mainFactory();
-            
+            var main = _sp.GetRequiredService<MainShellForm>();
+
             main.FormClosed += (_, __) =>
             {
-                // when user signs out (MainShellForm.Close), show login again & reset fields
                 ClearLogin();
                 this.Show();
             };
@@ -47,8 +45,10 @@ namespace UI
             main.Show();
         }
 
-        private void btnCancel_Click(object sender, EventArgs e) => Close();
-        
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
 
         private void panelHeader_MouseDown(object sender, MouseEventArgs e)
         {
@@ -61,7 +61,7 @@ namespace UI
             txtUser.Clear();
             txtPass.Clear();
             lblError.Visible = false;
-            this.ActiveControl = null;  // no caret in textboxes
+            this.ActiveControl = null;  // remove focus from textboxes
         }
     }
 }

@@ -64,7 +64,7 @@
             panelHeader.Dock = DockStyle.Top;
             panelHeader.Location = new Point(0, 0);
             panelHeader.Name = "panelHeader";
-            panelHeader.Size = new Size(1050, 64);
+            panelHeader.Size = new Size(1046, 64);
             panelHeader.TabIndex = 0;
             panelHeader.MouseDown += panelHeader_MouseDown;
             // 
@@ -142,9 +142,9 @@
             panelStatus.Controls.Add(pictureBox1);
             panelStatus.Controls.Add(btnSignOut);
             panelStatus.Dock = DockStyle.Bottom;
-            panelStatus.Location = new Point(0, 515);
+            panelStatus.Location = new Point(0, 509);
             panelStatus.Name = "panelStatus";
-            panelStatus.Size = new Size(1050, 51);
+            panelStatus.Size = new Size(1046, 51);
             panelStatus.TabIndex = 1;
             // 
             // lblDateTime
@@ -176,7 +176,7 @@
             panel1.Dock = DockStyle.Left;
             panel1.Location = new Point(0, 64);
             panel1.Name = "panel1";
-            panel1.Size = new Size(180, 451);
+            panel1.Size = new Size(180, 445);
             panel1.TabIndex = 2;
             // 
             // btnManualControl
@@ -237,7 +237,7 @@
             panelContent.Dock = DockStyle.Fill;
             panelContent.Location = new Point(180, 64);
             panelContent.Name = "panelContent";
-            panelContent.Size = new Size(870, 451);
+            panelContent.Size = new Size(866, 445);
             panelContent.TabIndex = 3;
             // 
             // uiTimerClock
@@ -250,9 +250,9 @@
             // 
             panel2.BackColor = Color.FromArgb(47, 58, 75);
             panel2.Dock = DockStyle.Right;
-            panel2.Location = new Point(1035, 64);
+            panel2.Location = new Point(1031, 64);
             panel2.Name = "panel2";
-            panel2.Size = new Size(15, 451);
+            panel2.Size = new Size(15, 445);
             panel2.TabIndex = 0;
             // 
             // MainShellForm
@@ -260,7 +260,7 @@
             AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(242, 245, 247);
-            ClientSize = new Size(1050, 566);
+            ClientSize = new Size(1046, 560);
             Controls.Add(panel2);
             Controls.Add(panelContent);
             Controls.Add(panel1);

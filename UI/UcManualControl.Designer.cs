@@ -47,7 +47,7 @@
             BackColor = SystemColors.ActiveCaption;
             Controls.Add(label1);
             Name = "UcManualControl";
-            Size = new Size(870, 451);
+            Size = new Size(866, 445);
             ResumeLayout(false);
             PerformLayout();
         }

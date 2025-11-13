@@ -37,6 +37,7 @@
             lblTitle = new Label();
             btnSignOut = new Button();
             panelStatus = new Panel();
+            lblDateTime = new Label();
             pictureBox1 = new PictureBox();
             panel1 = new Panel();
             btnRetrieve = new Button();
@@ -44,7 +45,7 @@
             btnStore = new Button();
             panelContent = new Panel();
             uiTimerClock = new System.Windows.Forms.Timer(components);
-            lblDateTime = new Label();
+            panel2 = new Panel();
             panelHeader.SuspendLayout();
             panelStatus.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -146,6 +147,16 @@
             panelStatus.Size = new Size(1287, 51);
             panelStatus.TabIndex = 1;
             // 
+            // lblDateTime
+            // 
+            lblDateTime.AutoSize = true;
+            lblDateTime.ForeColor = Color.White;
+            lblDateTime.Location = new Point(94, 15);
+            lblDateTime.Name = "lblDateTime";
+            lblDateTime.Size = new Size(45, 19);
+            lblDateTime.TabIndex = 10;
+            lblDateTime.Text = "label2";
+            // 
             // pictureBox1
             // 
             pictureBox1.Image = Properties.Resources.Logo;
@@ -233,15 +244,14 @@
             uiTimerClock.Interval = 1000;
             uiTimerClock.Tick += uiTimerClock_Tick;
             // 
-            // lblDateTime
+            // panel2
             // 
-            lblDateTime.AutoSize = true;
-            lblDateTime.ForeColor = Color.White;
-            lblDateTime.Location = new Point(94, 15);
-            lblDateTime.Name = "lblDateTime";
-            lblDateTime.Size = new Size(45, 19);
-            lblDateTime.TabIndex = 10;
-            lblDateTime.Text = "label2";
+            panel2.BackColor = Color.FromArgb(47, 58, 75);
+            panel2.Dock = DockStyle.Right;
+            panel2.Location = new Point(1272, 64);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(15, 575);
+            panel2.TabIndex = 0;
             // 
             // MainShellForm
             // 
@@ -249,6 +259,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(242, 245, 247);
             ClientSize = new Size(1287, 690);
+            Controls.Add(panel2);
             Controls.Add(panelContent);
             Controls.Add(panel1);
             Controls.Add(panelStatus);
@@ -285,5 +296,6 @@
         private PictureBox pictureBox1;
         private System.Windows.Forms.Timer uiTimerClock;
         private Label lblDateTime;
+        private Panel panel2;
     }
 }

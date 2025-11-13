@@ -40,9 +40,9 @@
             lblDateTime = new Label();
             pictureBox1 = new PictureBox();
             panel1 = new Panel();
-            btnRetrieve = new Button();
-            btnConfig = new Button();
-            btnStore = new Button();
+            btnManualControl = new Button();
+            btnWarehouseOperations = new Button();
+            btnDashboard = new Button();
             panelContent = new Panel();
             uiTimerClock = new System.Windows.Forms.Timer(components);
             panel2 = new Panel();
@@ -170,64 +170,66 @@
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(47, 58, 75);
-            panel1.Controls.Add(btnRetrieve);
-            panel1.Controls.Add(btnConfig);
-            panel1.Controls.Add(btnStore);
+            panel1.Controls.Add(btnManualControl);
+            panel1.Controls.Add(btnWarehouseOperations);
+            panel1.Controls.Add(btnDashboard);
             panel1.Dock = DockStyle.Left;
             panel1.Location = new Point(0, 64);
             panel1.Name = "panel1";
             panel1.Size = new Size(180, 575);
             panel1.TabIndex = 2;
             // 
-            // btnRetrieve
+            // btnManualControl
             // 
-            btnRetrieve.BackColor = Color.FromArgb(15, 118, 110);
-            btnRetrieve.Cursor = Cursors.Hand;
-            btnRetrieve.Dock = DockStyle.Top;
-            btnRetrieve.FlatAppearance.MouseOverBackColor = Color.FromArgb(20, 150, 140);
-            btnRetrieve.FlatStyle = FlatStyle.Flat;
-            btnRetrieve.Font = new Font("Segoe UI Semibold", 12F);
-            btnRetrieve.ForeColor = Color.White;
-            btnRetrieve.Location = new Point(0, 360);
-            btnRetrieve.Name = "btnRetrieve";
-            btnRetrieve.Size = new Size(180, 180);
-            btnRetrieve.TabIndex = 2;
-            btnRetrieve.Text = "Retrieve";
-            btnRetrieve.UseVisualStyleBackColor = false;
+            btnManualControl.BackColor = Color.FromArgb(15, 118, 110);
+            btnManualControl.Cursor = Cursors.Hand;
+            btnManualControl.Dock = DockStyle.Top;
+            btnManualControl.FlatAppearance.MouseOverBackColor = Color.FromArgb(20, 150, 140);
+            btnManualControl.FlatStyle = FlatStyle.Flat;
+            btnManualControl.Font = new Font("Segoe UI Semibold", 12F);
+            btnManualControl.ForeColor = Color.White;
+            btnManualControl.Location = new Point(0, 360);
+            btnManualControl.Name = "btnManualControl";
+            btnManualControl.Size = new Size(180, 180);
+            btnManualControl.TabIndex = 2;
+            btnManualControl.Text = "Manual I/O Control";
+            btnManualControl.UseVisualStyleBackColor = false;
+            btnManualControl.Click += btnManualControl_Click;
             // 
-            // btnConfig
+            // btnWarehouseOperations
             // 
-            btnConfig.BackColor = Color.FromArgb(15, 118, 110);
-            btnConfig.Cursor = Cursors.Hand;
-            btnConfig.Dock = DockStyle.Top;
-            btnConfig.FlatAppearance.MouseOverBackColor = Color.FromArgb(20, 150, 140);
-            btnConfig.FlatStyle = FlatStyle.Flat;
-            btnConfig.Font = new Font("Segoe UI Semibold", 12F);
-            btnConfig.ForeColor = Color.White;
-            btnConfig.Location = new Point(0, 180);
-            btnConfig.Name = "btnConfig";
-            btnConfig.Size = new Size(180, 180);
-            btnConfig.TabIndex = 1;
-            btnConfig.Text = "Configuration";
-            btnConfig.UseVisualStyleBackColor = false;
-            btnConfig.Click += btnConfig_Click;
+            btnWarehouseOperations.BackColor = Color.FromArgb(15, 118, 110);
+            btnWarehouseOperations.Cursor = Cursors.Hand;
+            btnWarehouseOperations.Dock = DockStyle.Top;
+            btnWarehouseOperations.FlatAppearance.MouseOverBackColor = Color.FromArgb(20, 150, 140);
+            btnWarehouseOperations.FlatStyle = FlatStyle.Flat;
+            btnWarehouseOperations.Font = new Font("Segoe UI Semibold", 12F);
+            btnWarehouseOperations.ForeColor = Color.White;
+            btnWarehouseOperations.Location = new Point(0, 180);
+            btnWarehouseOperations.Name = "btnWarehouseOperations";
+            btnWarehouseOperations.Size = new Size(180, 180);
+            btnWarehouseOperations.TabIndex = 1;
+            btnWarehouseOperations.Text = "Warehouse Operations";
+            btnWarehouseOperations.UseVisualStyleBackColor = false;
+            btnWarehouseOperations.Click += btnWarehouseOperations_Click;
             // 
-            // btnStore
+            // btnDashboard
             // 
-            btnStore.BackColor = Color.FromArgb(15, 118, 110);
-            btnStore.Cursor = Cursors.Hand;
-            btnStore.Dock = DockStyle.Top;
-            btnStore.FlatAppearance.MouseOverBackColor = Color.FromArgb(20, 150, 140);
-            btnStore.FlatStyle = FlatStyle.Flat;
-            btnStore.Font = new Font("Segoe UI Semibold", 12F);
-            btnStore.ForeColor = Color.White;
-            btnStore.ImageAlign = ContentAlignment.TopCenter;
-            btnStore.Location = new Point(0, 0);
-            btnStore.Name = "btnStore";
-            btnStore.Size = new Size(180, 180);
-            btnStore.TabIndex = 0;
-            btnStore.Text = "Storage Process";
-            btnStore.UseVisualStyleBackColor = false;
+            btnDashboard.BackColor = Color.FromArgb(15, 118, 110);
+            btnDashboard.Cursor = Cursors.Hand;
+            btnDashboard.Dock = DockStyle.Top;
+            btnDashboard.FlatAppearance.MouseOverBackColor = Color.FromArgb(20, 150, 140);
+            btnDashboard.FlatStyle = FlatStyle.Flat;
+            btnDashboard.Font = new Font("Segoe UI Semibold", 12F);
+            btnDashboard.ForeColor = Color.White;
+            btnDashboard.ImageAlign = ContentAlignment.TopCenter;
+            btnDashboard.Location = new Point(0, 0);
+            btnDashboard.Name = "btnDashboard";
+            btnDashboard.Size = new Size(180, 180);
+            btnDashboard.TabIndex = 0;
+            btnDashboard.Text = "Dashboard";
+            btnDashboard.UseVisualStyleBackColor = false;
+            btnDashboard.Click += btnDashboard_Click;
             // 
             // panelContent
             // 
@@ -286,9 +288,9 @@
         private Button btnSignOut;
         private Panel panelStatus;
         private Panel panel1;
-        private Button btnRetrieve;
-        private Button btnConfig;
-        private Button btnStore;
+        private Button btnManualControl;
+        private Button btnWarehouseOperations;
+        private Button btnDashboard;
         private Panel panelContent;
         private Sunny.UI.UILedBulb ledOnline;
         private Sunny.UI.UILedLabel uiLedLabelOnline;

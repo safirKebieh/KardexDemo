@@ -3,14 +3,14 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace UI
 {
-    public partial class UcOperations : UserControl
+    public partial class UcWarehouseOp : UserControl
     {
         private readonly IStorePalletUseCase _store;
         private readonly IRetrievePalletUseCase _retrieve;
         private readonly IResetOutputsUseCase _reset;
         private CancellationTokenSource? _cts;
 
-        public UcOperations(IStorePalletUseCase store, IRetrievePalletUseCase retrieve, IResetOutputsUseCase reset)
+        public UcWarehouseOp(IStorePalletUseCase store, IRetrievePalletUseCase retrieve, IResetOutputsUseCase reset)
         {
             InitializeComponent();
             _store = store;

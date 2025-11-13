@@ -1,6 +1,6 @@
 ﻿namespace UI
 {
-    partial class UcOperations
+    partial class UcWarehouseOp
     {
         /// <summary> 
         /// Required designer variable.

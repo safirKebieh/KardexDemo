@@ -34,8 +34,9 @@ namespace UI
             services.AddSingleton<IResetOutputsUseCase, ResetOutputsUseCase>();
 
             // UserControls      
-            services.AddTransient<UcManualConfig>();
-            services.AddTransient<UcOperations>();
+            services.AddTransient<UcDashboard>();
+            services.AddTransient<UcWarehouseOp>();
+            services.AddTransient<UcManualControl>();
 
             // Forms
             services.AddSingleton<AuthForm>();

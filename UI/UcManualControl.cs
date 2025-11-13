@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace UI
 {
-    public partial class UcManualConfig : UserControl
+    public partial class UcManualControl : UserControl
     {
-        public UcManualConfig()
+        public UcManualControl()
         {
             InitializeComponent();
         }

@@ -22,11 +22,20 @@ namespace UI
             lblDateTime.Text = _clock.UtcNow.ToString("dd.MM.yyyy  HH:mm:ss");
 
         }
-
-        private void btnConfig_Click(object sender, EventArgs e)
+        private void btnDashboard_Click(object sender, EventArgs e)
         {
-            if (btnConfig.BackColor == UiTheme.ButtonActive) return;
-            Navigate<UcOperations>(btnConfig);
+            if (btnDashboard.BackColor == UiTheme.ButtonActive) return;
+            Navigate<UcDashboard>(btnDashboard);
+        }
+        private void btnWarehouseOperations_Click(object sender, EventArgs e)
+        {
+            if (btnWarehouseOperations.BackColor == UiTheme.ButtonActive) return;
+            Navigate<UcWarehouseOp>(btnWarehouseOperations);
+        }
+        private void btnManualControl_Click(object sender, EventArgs e)
+        {
+            if (btnManualControl.BackColor == UiTheme.ButtonActive) return;
+            Navigate<UcManualControl>(btnManualControl);
         }
 
         private void btnSignOut_Click(object sender, EventArgs e)
@@ -81,13 +90,13 @@ namespace UI
 
         private void SetActive(Button activeBtn)
         {
-            btnStore.Enabled = true;
-            btnConfig.Enabled = true;
-            btnRetrieve.Enabled = true;
+            btnDashboard.Enabled = true;
+            btnWarehouseOperations.Enabled = true;
+            btnManualControl.Enabled = true;
 
-            btnStore.BackColor = UiTheme.ButtonNormal;
-            btnConfig.BackColor = UiTheme.ButtonNormal;
-            btnRetrieve.BackColor = UiTheme.ButtonNormal;
+            btnDashboard.BackColor = UiTheme.ButtonNormal;
+            btnWarehouseOperations.BackColor = UiTheme.ButtonNormal;
+            btnManualControl.BackColor = UiTheme.ButtonNormal;
 
             activeBtn.BackColor = UiTheme.ButtonActive;
         }

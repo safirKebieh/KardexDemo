@@ -1,6 +1,6 @@
 ﻿namespace UI
 {
-    partial class UcManualConfig
+    partial class UcManualControl
     {
         /// <summary> 
         /// Required designer variable.
@@ -36,17 +36,17 @@
             label1.AutoSize = true;
             label1.Location = new Point(28, 58);
             label1.Name = "label1";
-            label1.Size = new Size(83, 15);
+            label1.Size = new Size(110, 15);
             label1.TabIndex = 0;
-            label1.Text = "ManualConfig";
+            label1.Text = "Manual I/O Control";
             // 
-            // UcManualConfig
+            // UcManualControl
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
             Controls.Add(label1);
-            Name = "UcManualConfig";
+            Name = "UcManualControl";
             Size = new Size(1107, 575);
             ResumeLayout(false);
             PerformLayout();

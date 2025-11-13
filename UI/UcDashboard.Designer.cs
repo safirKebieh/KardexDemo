@@ -31,20 +31,35 @@
             tableLayoutPanel1 = new TableLayoutPanel();
             groupBox1 = new GroupBox();
             tableLayoutPanel2 = new TableLayoutPanel();
-            label2 = new Label();
-            label3 = new Label();
             label4 = new Label();
-            lblConnectionValue = new Label();
-            lblIpValue = new Label();
-            lblPortValue = new Label();
             lblSlaveValue = new Label();
+            lblPortValue = new Label();
+            label3 = new Label();
+            label2 = new Label();
+            lblIpValue = new Label();
             label1 = new Label();
+            lblConnectionValue = new Label();
+            label12 = new Label();
+            lblMachineName = new Label();
             groupBox2 = new GroupBox();
             groupBox3 = new GroupBox();
+            tableLayoutPanel3 = new TableLayoutPanel();
+            label8 = new Label();
+            lblTotalRam = new Label();
+            lblRuntimeValue = new Label();
+            lblArchitectureValue = new Label();
+            lblOsValue = new Label();
+            label7 = new Label();
+            label6 = new Label();
+            label5 = new Label();
+            label9 = new Label();
+            lblAppRam = new Label();
             groupBox4 = new GroupBox();
             tableLayoutPanel1.SuspendLayout();
             groupBox1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
+            groupBox3.SuspendLayout();
+            tableLayoutPanel3.SuspendLayout();
             SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -62,150 +77,332 @@
             tableLayoutPanel1.RowCount = 2;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel1.Size = new Size(1107, 575);
+            tableLayoutPanel1.Size = new Size(870, 451);
             tableLayoutPanel1.TabIndex = 0;
             // 
             // groupBox1
             // 
             groupBox1.Controls.Add(tableLayoutPanel2);
             groupBox1.Dock = DockStyle.Fill;
-            groupBox1.Font = new Font("Segoe UI", 12F);
+            groupBox1.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            groupBox1.ForeColor = Color.FromArgb(150, 150, 150);
             groupBox1.Location = new Point(3, 3);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(547, 281);
+            groupBox1.Size = new Size(429, 219);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Text = "System Status";
             // 
             // tableLayoutPanel2
             // 
-            tableLayoutPanel2.ColumnCount = 2;
+            tableLayoutPanel2.ColumnCount = 3;
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 40F));
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 60F));
-            tableLayoutPanel2.Controls.Add(label2, 0, 1);
-            tableLayoutPanel2.Controls.Add(label3, 0, 2);
-            tableLayoutPanel2.Controls.Add(label4, 0, 3);
-            tableLayoutPanel2.Controls.Add(lblConnectionValue, 1, 0);
-            tableLayoutPanel2.Controls.Add(lblIpValue, 1, 1);
-            tableLayoutPanel2.Controls.Add(lblPortValue, 1, 2);
-            tableLayoutPanel2.Controls.Add(lblSlaveValue, 1, 3);
-            tableLayoutPanel2.Controls.Add(label1, 0, 0);
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel2.Controls.Add(label4, 0, 4);
+            tableLayoutPanel2.Controls.Add(lblSlaveValue, 1, 4);
+            tableLayoutPanel2.Controls.Add(lblPortValue, 1, 3);
+            tableLayoutPanel2.Controls.Add(label3, 0, 3);
+            tableLayoutPanel2.Controls.Add(label2, 0, 2);
+            tableLayoutPanel2.Controls.Add(lblIpValue, 1, 2);
+            tableLayoutPanel2.Controls.Add(label1, 0, 1);
+            tableLayoutPanel2.Controls.Add(lblConnectionValue, 1, 1);
+            tableLayoutPanel2.Controls.Add(label12, 0, 5);
+            tableLayoutPanel2.Controls.Add(lblMachineName, 1, 5);
             tableLayoutPanel2.Dock = DockStyle.Fill;
             tableLayoutPanel2.Location = new Point(3, 25);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
-            tableLayoutPanel2.RowCount = 4;
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
-            tableLayoutPanel2.Size = new Size(541, 253);
+            tableLayoutPanel2.RowCount = 6;
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 16.666666F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 16.666666F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 16.666666F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 16.666666F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 16.666666F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 16.666666F));
+            tableLayoutPanel2.Size = new Size(423, 191);
             tableLayoutPanel2.TabIndex = 0;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(3, 63);
-            label2.Name = "label2";
-            label2.Size = new Size(83, 21);
-            label2.TabIndex = 1;
-            label2.Text = "IP Address";
-            label2.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(3, 126);
-            label3.Name = "label3";
-            label3.Size = new Size(38, 21);
-            label3.TabIndex = 2;
-            label3.Text = "Port";
-            label3.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(3, 189);
+            label4.ForeColor = Color.FromArgb(80, 80, 80);
+            label4.Location = new Point(3, 124);
             label4.Name = "label4";
-            label4.Size = new Size(66, 21);
+            label4.Size = new Size(72, 21);
             label4.TabIndex = 3;
             label4.Text = "Slave ID";
             label4.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // lblConnectionValue
-            // 
-            lblConnectionValue.AutoSize = true;
-            lblConnectionValue.Location = new Point(219, 0);
-            lblConnectionValue.Name = "lblConnectionValue";
-            lblConnectionValue.Size = new Size(57, 21);
-            lblConnectionValue.TabIndex = 4;
-            lblConnectionValue.Text = "Offline";
-            // 
-            // lblIpValue
-            // 
-            lblIpValue.AutoSize = true;
-            lblIpValue.Location = new Point(219, 63);
-            lblIpValue.Name = "lblIpValue";
-            lblIpValue.Size = new Size(22, 21);
-            lblIpValue.TabIndex = 5;
-            lblIpValue.Text = "--";
-            // 
-            // lblPortValue
-            // 
-            lblPortValue.AutoSize = true;
-            lblPortValue.Location = new Point(219, 126);
-            lblPortValue.Name = "lblPortValue";
-            lblPortValue.Size = new Size(22, 21);
-            lblPortValue.TabIndex = 6;
-            lblPortValue.Text = "--";
-            // 
             // lblSlaveValue
             // 
             lblSlaveValue.AutoSize = true;
-            lblSlaveValue.Location = new Point(219, 189);
+            lblSlaveValue.Font = new Font("Segoe UI", 12F);
+            lblSlaveValue.ForeColor = Color.FromArgb(80, 80, 80);
+            lblSlaveValue.Location = new Point(164, 124);
             lblSlaveValue.Name = "lblSlaveValue";
             lblSlaveValue.Size = new Size(22, 21);
             lblSlaveValue.TabIndex = 7;
             lblSlaveValue.Text = "--";
             // 
+            // lblPortValue
+            // 
+            lblPortValue.AutoSize = true;
+            lblPortValue.Font = new Font("Segoe UI", 12F);
+            lblPortValue.ForeColor = Color.FromArgb(80, 80, 80);
+            lblPortValue.Location = new Point(164, 93);
+            lblPortValue.Name = "lblPortValue";
+            lblPortValue.Size = new Size(22, 21);
+            lblPortValue.TabIndex = 6;
+            lblPortValue.Text = "--";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.ForeColor = Color.FromArgb(80, 80, 80);
+            label3.Location = new Point(3, 93);
+            label3.Name = "label3";
+            label3.Size = new Size(42, 21);
+            label3.TabIndex = 2;
+            label3.Text = "Port";
+            label3.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.ForeColor = Color.FromArgb(80, 80, 80);
+            label2.Location = new Point(3, 62);
+            label2.Name = "label2";
+            label2.Size = new Size(89, 21);
+            label2.TabIndex = 1;
+            label2.Text = "IP Address";
+            label2.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // lblIpValue
+            // 
+            lblIpValue.AutoSize = true;
+            lblIpValue.Font = new Font("Segoe UI", 12F);
+            lblIpValue.ForeColor = Color.FromArgb(80, 80, 80);
+            lblIpValue.Location = new Point(164, 62);
+            lblIpValue.Name = "lblIpValue";
+            lblIpValue.Size = new Size(22, 21);
+            lblIpValue.TabIndex = 5;
+            lblIpValue.Text = "--";
+            // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(3, 0);
+            label1.ForeColor = Color.FromArgb(80, 80, 80);
+            label1.Location = new Point(3, 31);
             label1.Name = "label1";
-            label1.Size = new Size(89, 21);
+            label1.Size = new Size(98, 21);
             label1.TabIndex = 0;
             label1.Text = "Connection";
             label1.TextAlign = ContentAlignment.MiddleLeft;
             // 
+            // lblConnectionValue
+            // 
+            lblConnectionValue.AutoSize = true;
+            lblConnectionValue.Font = new Font("Segoe UI", 12F);
+            lblConnectionValue.Location = new Point(164, 31);
+            lblConnectionValue.Name = "lblConnectionValue";
+            lblConnectionValue.Size = new Size(57, 21);
+            lblConnectionValue.TabIndex = 4;
+            lblConnectionValue.Text = "Offline";
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.ForeColor = Color.FromArgb(80, 80, 80);
+            label12.Location = new Point(3, 155);
+            label12.Name = "label12";
+            label12.Size = new Size(126, 21);
+            label12.TabIndex = 0;
+            label12.Text = "Machine Name";
+            label12.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // lblMachineName
+            // 
+            lblMachineName.AutoSize = true;
+            lblMachineName.Font = new Font("Segoe UI", 12F);
+            lblMachineName.ForeColor = Color.FromArgb(80, 80, 80);
+            lblMachineName.Location = new Point(164, 155);
+            lblMachineName.Name = "lblMachineName";
+            lblMachineName.Size = new Size(22, 21);
+            lblMachineName.TabIndex = 0;
+            lblMachineName.Text = "--";
+            // 
             // groupBox2
             // 
             groupBox2.Dock = DockStyle.Fill;
-            groupBox2.Font = new Font("Segoe UI", 12F);
-            groupBox2.Location = new Point(3, 290);
+            groupBox2.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            groupBox2.ForeColor = Color.FromArgb(150, 150, 150);
+            groupBox2.Location = new Point(3, 228);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(547, 282);
+            groupBox2.Size = new Size(429, 220);
             groupBox2.TabIndex = 1;
             groupBox2.TabStop = false;
             groupBox2.Text = "Last Operation";
             // 
             // groupBox3
             // 
+            groupBox3.Controls.Add(tableLayoutPanel3);
             groupBox3.Dock = DockStyle.Fill;
-            groupBox3.Font = new Font("Segoe UI", 12F);
-            groupBox3.Location = new Point(556, 3);
+            groupBox3.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            groupBox3.ForeColor = Color.FromArgb(150, 150, 150);
+            groupBox3.Location = new Point(438, 3);
             groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(548, 281);
+            groupBox3.Size = new Size(429, 219);
             groupBox3.TabIndex = 2;
             groupBox3.TabStop = false;
             groupBox3.Text = "System Information";
             // 
+            // tableLayoutPanel3
+            // 
+            tableLayoutPanel3.ColumnCount = 2;
+            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 40F));
+            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 60F));
+            tableLayoutPanel3.Controls.Add(label8, 0, 4);
+            tableLayoutPanel3.Controls.Add(lblTotalRam, 1, 4);
+            tableLayoutPanel3.Controls.Add(lblRuntimeValue, 1, 3);
+            tableLayoutPanel3.Controls.Add(lblArchitectureValue, 1, 2);
+            tableLayoutPanel3.Controls.Add(lblOsValue, 1, 1);
+            tableLayoutPanel3.Controls.Add(label7, 0, 3);
+            tableLayoutPanel3.Controls.Add(label6, 0, 2);
+            tableLayoutPanel3.Controls.Add(label5, 0, 1);
+            tableLayoutPanel3.Controls.Add(label9, 0, 5);
+            tableLayoutPanel3.Controls.Add(lblAppRam, 1, 5);
+            tableLayoutPanel3.Dock = DockStyle.Fill;
+            tableLayoutPanel3.Location = new Point(3, 25);
+            tableLayoutPanel3.Name = "tableLayoutPanel3";
+            tableLayoutPanel3.RowCount = 6;
+            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 11.9318171F));
+            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 11.9318171F));
+            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 11.9318171F));
+            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 11.9318171F));
+            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 11.9318171F));
+            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 11.9318171F));
+            tableLayoutPanel3.Size = new Size(423, 191);
+            tableLayoutPanel3.TabIndex = 0;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.ForeColor = Color.FromArgb(80, 80, 80);
+            label8.Location = new Point(3, 124);
+            label8.Name = "label8";
+            label8.Size = new Size(88, 21);
+            label8.TabIndex = 0;
+            label8.Text = "Total RAM";
+            label8.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // lblTotalRam
+            // 
+            lblTotalRam.AutoSize = true;
+            lblTotalRam.Font = new Font("Segoe UI", 12F);
+            lblTotalRam.ForeColor = Color.FromArgb(80, 80, 80);
+            lblTotalRam.Location = new Point(172, 124);
+            lblTotalRam.Name = "lblTotalRam";
+            lblTotalRam.Size = new Size(22, 21);
+            lblTotalRam.TabIndex = 0;
+            lblTotalRam.Text = "--";
+            // 
+            // lblRuntimeValue
+            // 
+            lblRuntimeValue.AutoSize = true;
+            lblRuntimeValue.Font = new Font("Segoe UI", 12F);
+            lblRuntimeValue.ForeColor = Color.FromArgb(80, 80, 80);
+            lblRuntimeValue.Location = new Point(172, 93);
+            lblRuntimeValue.Name = "lblRuntimeValue";
+            lblRuntimeValue.Size = new Size(22, 21);
+            lblRuntimeValue.TabIndex = 0;
+            lblRuntimeValue.Text = "--";
+            // 
+            // lblArchitectureValue
+            // 
+            lblArchitectureValue.AutoSize = true;
+            lblArchitectureValue.Font = new Font("Segoe UI", 12F);
+            lblArchitectureValue.ForeColor = Color.FromArgb(80, 80, 80);
+            lblArchitectureValue.Location = new Point(172, 62);
+            lblArchitectureValue.Name = "lblArchitectureValue";
+            lblArchitectureValue.Size = new Size(22, 21);
+            lblArchitectureValue.TabIndex = 0;
+            lblArchitectureValue.Text = "--";
+            // 
+            // lblOsValue
+            // 
+            lblOsValue.AutoSize = true;
+            lblOsValue.Font = new Font("Segoe UI", 12F);
+            lblOsValue.ForeColor = Color.FromArgb(80, 80, 80);
+            lblOsValue.Location = new Point(172, 31);
+            lblOsValue.Name = "lblOsValue";
+            lblOsValue.Size = new Size(22, 21);
+            lblOsValue.TabIndex = 0;
+            lblOsValue.Text = "--";
+            lblOsValue.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.ForeColor = Color.FromArgb(80, 80, 80);
+            label7.Location = new Point(3, 93);
+            label7.Name = "label7";
+            label7.Size = new Size(122, 21);
+            label7.TabIndex = 0;
+            label7.Text = ".NET RUNTIME";
+            label7.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.ForeColor = Color.FromArgb(80, 80, 80);
+            label6.Location = new Point(3, 62);
+            label6.Name = "label6";
+            label6.Size = new Size(104, 21);
+            label6.TabIndex = 0;
+            label6.Text = "Architecture";
+            label6.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.ForeColor = Color.FromArgb(80, 80, 80);
+            label5.Location = new Point(3, 31);
+            label5.Name = "label5";
+            label5.Size = new Size(31, 21);
+            label5.TabIndex = 0;
+            label5.Text = "OS";
+            label5.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.ForeColor = Color.FromArgb(80, 80, 80);
+            label9.Location = new Point(3, 155);
+            label9.Name = "label9";
+            label9.Size = new Size(81, 21);
+            label9.TabIndex = 0;
+            label9.Text = "App RAM";
+            label9.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // lblAppRam
+            // 
+            lblAppRam.AutoSize = true;
+            lblAppRam.Font = new Font("Segoe UI", 12F);
+            lblAppRam.ForeColor = Color.FromArgb(80, 80, 80);
+            lblAppRam.Location = new Point(172, 155);
+            lblAppRam.Name = "lblAppRam";
+            lblAppRam.Size = new Size(22, 21);
+            lblAppRam.TabIndex = 0;
+            lblAppRam.Text = "--";
+            // 
             // groupBox4
             // 
             groupBox4.Dock = DockStyle.Fill;
-            groupBox4.Font = new Font("Segoe UI", 12F);
-            groupBox4.Location = new Point(556, 290);
+            groupBox4.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            groupBox4.ForeColor = Color.FromArgb(150, 150, 150);
+            groupBox4.Location = new Point(438, 228);
             groupBox4.Name = "groupBox4";
-            groupBox4.Size = new Size(548, 282);
+            groupBox4.Size = new Size(429, 220);
             groupBox4.TabIndex = 3;
             groupBox4.TabStop = false;
             groupBox4.Text = "Messages";
@@ -216,11 +413,14 @@
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(tableLayoutPanel1);
             Name = "UcDashboard";
-            Size = new Size(1107, 575);
+            Size = new Size(870, 451);
             tableLayoutPanel1.ResumeLayout(false);
             groupBox1.ResumeLayout(false);
             tableLayoutPanel2.ResumeLayout(false);
             tableLayoutPanel2.PerformLayout();
+            groupBox3.ResumeLayout(false);
+            tableLayoutPanel3.ResumeLayout(false);
+            tableLayoutPanel3.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -240,5 +440,18 @@
         private Label lblPortValue;
         private Label lblSlaveValue;
         private Label label1;
+        private TableLayoutPanel tableLayoutPanel3;
+        private Label label5;
+        private Label label6;
+        private Label label7;
+        private Label label8;
+        private Label lblTotalRam;
+        private Label lblRuntimeValue;
+        private Label lblArchitectureValue;
+        private Label lblOsValue;
+        private Label label9;
+        private Label lblAppRam;
+        private Label lblMachineName;
+        private Label label12;
     }
 }

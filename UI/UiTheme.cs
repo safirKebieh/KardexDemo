@@ -6,6 +6,6 @@ internal static class UiTheme
     public static readonly Color ButtonActive = Color.FromArgb(20, 150, 140);
     public static readonly Color ForeColor = Color.FromArgb(255, 255, 255);
 
-    public static readonly Color Connected = Color.Green;
+    public static readonly Color Connected = Color.LightGreen;
     public static readonly Color Disconnected = Color.DarkGray;
 }

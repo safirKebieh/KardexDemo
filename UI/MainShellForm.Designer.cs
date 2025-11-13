@@ -64,7 +64,7 @@
             panelHeader.Dock = DockStyle.Top;
             panelHeader.Location = new Point(0, 0);
             panelHeader.Name = "panelHeader";
-            panelHeader.Size = new Size(1287, 64);
+            panelHeader.Size = new Size(1050, 64);
             panelHeader.TabIndex = 0;
             panelHeader.MouseDown += panelHeader_MouseDown;
             // 
@@ -72,7 +72,7 @@
             // 
             label1.AutoSize = true;
             label1.ForeColor = Color.White;
-            label1.Location = new Point(1171, 42);
+            label1.Location = new Point(928, 38);
             label1.Name = "label1";
             label1.Size = new Size(46, 19);
             label1.TabIndex = 8;
@@ -116,7 +116,7 @@
             lblTitle.AutoSize = true;
             lblTitle.Font = new Font("Segoe UI Semibold", 18F);
             lblTitle.ForeColor = Color.White;
-            lblTitle.Location = new Point(1113, 12);
+            lblTitle.Location = new Point(870, 8);
             lblTitle.Name = "lblTitle";
             lblTitle.Size = new Size(162, 32);
             lblTitle.TabIndex = 0;
@@ -127,7 +127,7 @@
             btnSignOut.BackColor = Color.FromArgb(15, 118, 110);
             btnSignOut.FlatStyle = FlatStyle.Flat;
             btnSignOut.ForeColor = Color.White;
-            btnSignOut.Location = new Point(1165, 7);
+            btnSignOut.Location = new Point(884, 6);
             btnSignOut.Name = "btnSignOut";
             btnSignOut.Size = new Size(110, 32);
             btnSignOut.TabIndex = 3;
@@ -142,9 +142,9 @@
             panelStatus.Controls.Add(pictureBox1);
             panelStatus.Controls.Add(btnSignOut);
             panelStatus.Dock = DockStyle.Bottom;
-            panelStatus.Location = new Point(0, 639);
+            panelStatus.Location = new Point(0, 515);
             panelStatus.Name = "panelStatus";
-            panelStatus.Size = new Size(1287, 51);
+            panelStatus.Size = new Size(1050, 51);
             panelStatus.TabIndex = 1;
             // 
             // lblDateTime
@@ -176,7 +176,7 @@
             panel1.Dock = DockStyle.Left;
             panel1.Location = new Point(0, 64);
             panel1.Name = "panel1";
-            panel1.Size = new Size(180, 575);
+            panel1.Size = new Size(180, 451);
             panel1.TabIndex = 2;
             // 
             // btnManualControl
@@ -188,9 +188,9 @@
             btnManualControl.FlatStyle = FlatStyle.Flat;
             btnManualControl.Font = new Font("Segoe UI Semibold", 12F);
             btnManualControl.ForeColor = Color.White;
-            btnManualControl.Location = new Point(0, 360);
+            btnManualControl.Location = new Point(0, 300);
             btnManualControl.Name = "btnManualControl";
-            btnManualControl.Size = new Size(180, 180);
+            btnManualControl.Size = new Size(180, 150);
             btnManualControl.TabIndex = 2;
             btnManualControl.Text = "Manual I/O Control";
             btnManualControl.UseVisualStyleBackColor = false;
@@ -205,9 +205,9 @@
             btnWarehouseOperations.FlatStyle = FlatStyle.Flat;
             btnWarehouseOperations.Font = new Font("Segoe UI Semibold", 12F);
             btnWarehouseOperations.ForeColor = Color.White;
-            btnWarehouseOperations.Location = new Point(0, 180);
+            btnWarehouseOperations.Location = new Point(0, 150);
             btnWarehouseOperations.Name = "btnWarehouseOperations";
-            btnWarehouseOperations.Size = new Size(180, 180);
+            btnWarehouseOperations.Size = new Size(180, 150);
             btnWarehouseOperations.TabIndex = 1;
             btnWarehouseOperations.Text = "Warehouse Operations";
             btnWarehouseOperations.UseVisualStyleBackColor = false;
@@ -225,7 +225,7 @@
             btnDashboard.ImageAlign = ContentAlignment.TopCenter;
             btnDashboard.Location = new Point(0, 0);
             btnDashboard.Name = "btnDashboard";
-            btnDashboard.Size = new Size(180, 180);
+            btnDashboard.Size = new Size(180, 150);
             btnDashboard.TabIndex = 0;
             btnDashboard.Text = "Dashboard";
             btnDashboard.UseVisualStyleBackColor = false;
@@ -237,7 +237,7 @@
             panelContent.Dock = DockStyle.Fill;
             panelContent.Location = new Point(180, 64);
             panelContent.Name = "panelContent";
-            panelContent.Size = new Size(1107, 575);
+            panelContent.Size = new Size(870, 451);
             panelContent.TabIndex = 3;
             // 
             // uiTimerClock
@@ -250,9 +250,9 @@
             // 
             panel2.BackColor = Color.FromArgb(47, 58, 75);
             panel2.Dock = DockStyle.Right;
-            panel2.Location = new Point(1272, 64);
+            panel2.Location = new Point(1035, 64);
             panel2.Name = "panel2";
-            panel2.Size = new Size(15, 575);
+            panel2.Size = new Size(15, 451);
             panel2.TabIndex = 0;
             // 
             // MainShellForm
@@ -260,7 +260,7 @@
             AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(242, 245, 247);
-            ClientSize = new Size(1287, 690);
+            ClientSize = new Size(1050, 566);
             Controls.Add(panel2);
             Controls.Add(panelContent);
             Controls.Add(panel1);

@@ -67,10 +67,10 @@
             // 
             // txtLog
             // 
-            txtLog.Location = new Point(627, 116);
+            txtLog.Location = new Point(64, 265);
             txtLog.Multiline = true;
             txtLog.Name = "txtLog";
-            txtLog.Size = new Size(391, 396);
+            txtLog.Size = new Size(772, 164);
             txtLog.TabIndex = 4;
             // 
             // label1
@@ -94,7 +94,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(627, 98);
+            label4.Location = new Point(64, 247);
             label4.Name = "label4";
             label4.Size = new Size(27, 15);
             label4.TabIndex = 8;
@@ -110,7 +110,7 @@
             btnQuitterung.UseVisualStyleBackColor = true;
             btnQuitterung.Click += btnQuitterung_Click;
             // 
-            // UcOperations
+            // UcWarehouseOp
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -122,8 +122,8 @@
             Controls.Add(btnStart);
             Controls.Add(numSlot);
             Controls.Add(cmbMode);
-            Name = "UcOperations";
-            Size = new Size(1107, 575);
+            Name = "UcWarehouseOp";
+            Size = new Size(870, 451);
             ((System.ComponentModel.ISupportInitialize)numSlot).EndInit();
             ResumeLayout(false);
             PerformLayout();

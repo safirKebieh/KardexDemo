@@ -27,6 +27,9 @@ namespace UI
 
             lblDateTime.Text = _clock.UtcNow.ToString("dd.MM.yyyy  HH:mm:ss");
             Navigate<UcDashboard>(btnDashboard);
+
+            var dashboard = GetDashboard();
+            dashboard.LoadSystemInformation();
         }
 
         #endregion
@@ -151,6 +154,8 @@ namespace UI
         private void uiTimerClock_Tick(object sender, EventArgs e)
         {
             lblDateTime.Text = _clock.UtcNow.ToString("dd.MM.yyyy  HH:mm:ss");
+            var dashboard = GetDashboard();
+            dashboard.UpdateAppRam();
         }
 
         #endregion

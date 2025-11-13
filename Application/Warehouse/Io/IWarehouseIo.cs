@@ -1,7 +1,5 @@
 ﻿namespace Application.Warehouse.Io;
 
-/// Hardware abstraction for the automated warehouse.
-/// UI/logic depends ONLY on this interface – not on Modbus details.
 public interface IWarehouseIo
 {
     // Read all inputs in one go (coherent snapshot).

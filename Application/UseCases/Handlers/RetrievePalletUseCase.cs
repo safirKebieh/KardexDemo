@@ -1,6 +1,6 @@
-﻿using Application.Ports;              // IClock
-using Application.Warehouse;          // IWarehouseInventory, ICraneAddressEncoder
-using Application.Warehouse.Io;       // IWarehouseIo, OutputCommand, RegisterWrites
+﻿using Application.Ports;              
+using Application.Warehouse;          
+using Application.Warehouse.Io;       
 
 namespace Application.UseCases.Handlers
 {
@@ -10,9 +10,9 @@ namespace Application.UseCases.Handlers
         private readonly IWarehouseIo _io;
         private readonly IClock _clock;
 
-        private const int CraneIdleSlot = 55; // نفس قيمة الـ Store
+        private const int CraneIdleSlot = 55;
         private const int Rows = 6;
-        private const int Cols = 9;           // 6 x 9 = 54 slots
+        private const int Cols = 9;           
 
         public RetrievePalletUseCase(IWarehouseIo io, IWarehouseInventory inventory, IClock clock)
         {

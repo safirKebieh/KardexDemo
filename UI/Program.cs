@@ -28,6 +28,10 @@ namespace UI
             services.AddSingleton<IClock, SystemClock>();
             services.AddSingleton<IWarehouseIo, ModbusWarehouseIo>();
 
+            // Inventory
+            services.AddSingleton<IWarehouseInventory>(
+                sp => new WarehouseInventory(rowCount: 6, columnCount: 9));
+
             // UseCases
             services.AddSingleton<IStorePalletUseCase, StorePalletUseCase>();
             services.AddSingleton<IRetrievePalletUseCase, RetrievePalletUseCase>();
@@ -41,10 +45,6 @@ namespace UI
             // Forms
             services.AddSingleton<AuthForm>();
             services.AddTransient<MainShellForm>();
-
-            // Inventory
-            services.AddSingleton<IWarehouseInventory>(
-                sp => new WarehouseInventory(rowCount: 6, columnCount: 9));
 
             var provider = services.BuildServiceProvider();
 

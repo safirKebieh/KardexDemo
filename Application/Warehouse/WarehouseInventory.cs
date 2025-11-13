@@ -31,7 +31,7 @@ public sealed class WarehouseInventory : IWarehouseInventory
                 if (!_occupied[r, c])
                     return (r, c);
 
-        return null; 
+        return null;
     }
 
     public void MarkSlotAsOccupied(int row, int column)

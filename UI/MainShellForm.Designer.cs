@@ -28,23 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             panelHeader = new Panel();
-            panel2 = new Panel();
+            label1 = new Label();
+            uiLedLabelOnline = new Sunny.UI.UILedLabel();
+            ledOnline = new Sunny.UI.UILedBulb();
             btnConnect = new Button();
-            lblUser = new Label();
             lblTitle = new Label();
             btnSignOut = new Button();
             panelStatus = new Panel();
-            lblClock = new Label();
-            lblMsg = new Label();
-            lblMode = new Label();
+            pictureBox1 = new PictureBox();
             panel1 = new Panel();
             btnRetrieve = new Button();
             btnConfig = new Button();
             btnStore = new Button();
             panelContent = new Panel();
+            uiTimerClock = new System.Windows.Forms.Timer(components);
+            lblDateTime = new Label();
             panelHeader.SuspendLayout();
             panelStatus.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -52,9 +55,10 @@
             // 
             panelHeader.BackColor = Color.FromArgb(47, 58, 75);
             panelHeader.BackgroundImageLayout = ImageLayout.None;
-            panelHeader.Controls.Add(panel2);
+            panelHeader.Controls.Add(label1);
+            panelHeader.Controls.Add(uiLedLabelOnline);
+            panelHeader.Controls.Add(ledOnline);
             panelHeader.Controls.Add(btnConnect);
-            panelHeader.Controls.Add(lblUser);
             panelHeader.Controls.Add(lblTitle);
             panelHeader.Dock = DockStyle.Top;
             panelHeader.Location = new Point(0, 0);
@@ -63,43 +67,55 @@
             panelHeader.TabIndex = 0;
             panelHeader.MouseDown += panelHeader_MouseDown;
             // 
-            // panel2
+            // label1
             // 
-            panel2.BackColor = Color.DarkGray;
-            panel2.Location = new Point(1145, 28);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(14, 14);
-            panel2.TabIndex = 4;
+            label1.AutoSize = true;
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(1171, 42);
+            label1.Name = "label1";
+            label1.Size = new Size(46, 19);
+            label1.TabIndex = 8;
+            label1.Text = "v1.0.0";
+            // 
+            // uiLedLabelOnline
+            // 
+            uiLedLabelOnline.Font = new Font("Segoe UI Semibold", 12F);
+            uiLedLabelOnline.ForeColor = Color.White;
+            uiLedLabelOnline.Location = new Point(226, 9);
+            uiLedLabelOnline.MinimumSize = new Size(1, 1);
+            uiLedLabelOnline.Name = "uiLedLabelOnline";
+            uiLedLabelOnline.Size = new Size(273, 35);
+            uiLedLabelOnline.TabIndex = 7;
+            uiLedLabelOnline.Text = "Modbus Offline";
+            // 
+            // ledOnline
+            // 
+            ledOnline.Color = Color.DarkGray;
+            ledOnline.Location = new Point(202, 16);
+            ledOnline.Name = "ledOnline";
+            ledOnline.Size = new Size(18, 18);
+            ledOnline.TabIndex = 5;
+            ledOnline.Text = "uiLedBulb1";
             // 
             // btnConnect
             // 
             btnConnect.BackColor = Color.FromArgb(15, 118, 110);
             btnConnect.FlatStyle = FlatStyle.Flat;
             btnConnect.ForeColor = Color.White;
-            btnConnect.Location = new Point(1165, 16);
+            btnConnect.Location = new Point(12, 12);
             btnConnect.Name = "btnConnect";
-            btnConnect.Size = new Size(110, 32);
+            btnConnect.Size = new Size(183, 32);
             btnConnect.TabIndex = 3;
-            btnConnect.Text = "Connect";
+            btnConnect.Text = "Connect / Disconnect";
             btnConnect.UseVisualStyleBackColor = false;
             btnConnect.Click += btnConnect_Click;
-            // 
-            // lblUser
-            // 
-            lblUser.AutoSize = true;
-            lblUser.ForeColor = Color.White;
-            lblUser.Location = new Point(340, 23);
-            lblUser.Name = "lblUser";
-            lblUser.Size = new Size(80, 19);
-            lblUser.TabIndex = 1;
-            lblUser.Text = "label1.USER";
             // 
             // lblTitle
             // 
             lblTitle.AutoSize = true;
             lblTitle.Font = new Font("Segoe UI Semibold", 18F);
             lblTitle.ForeColor = Color.White;
-            lblTitle.Location = new Point(20, 16);
+            lblTitle.Location = new Point(1113, 12);
             lblTitle.Name = "lblTitle";
             lblTitle.Size = new Size(162, 32);
             lblTitle.TabIndex = 0;
@@ -121,48 +137,24 @@
             // panelStatus
             // 
             panelStatus.BackColor = Color.FromArgb(47, 58, 75);
+            panelStatus.Controls.Add(lblDateTime);
+            panelStatus.Controls.Add(pictureBox1);
             panelStatus.Controls.Add(btnSignOut);
-            panelStatus.Controls.Add(lblClock);
-            panelStatus.Controls.Add(lblMsg);
-            panelStatus.Controls.Add(lblMode);
             panelStatus.Dock = DockStyle.Bottom;
             panelStatus.Location = new Point(0, 639);
             panelStatus.Name = "panelStatus";
             panelStatus.Size = new Size(1287, 51);
             panelStatus.TabIndex = 1;
             // 
-            // lblClock
+            // pictureBox1
             // 
-            lblClock.AutoSize = true;
-            lblClock.Font = new Font("Segoe UI Semibold", 10F);
-            lblClock.ForeColor = Color.White;
-            lblClock.Location = new Point(410, 12);
-            lblClock.Name = "lblClock";
-            lblClock.Size = new Size(40, 19);
-            lblClock.TabIndex = 0;
-            lblClock.Text = "Time";
-            // 
-            // lblMsg
-            // 
-            lblMsg.AutoSize = true;
-            lblMsg.Font = new Font("Segoe UI Semibold", 10F);
-            lblMsg.ForeColor = Color.White;
-            lblMsg.Location = new Point(202, 12);
-            lblMsg.Name = "lblMsg";
-            lblMsg.Size = new Size(86, 19);
-            lblMsg.TabIndex = 0;
-            lblMsg.Text = "MSG.READY";
-            // 
-            // lblMode
-            // 
-            lblMode.AutoSize = true;
-            lblMode.Font = new Font("Segoe UI Semibold", 10F);
-            lblMode.ForeColor = Color.White;
-            lblMode.Location = new Point(20, 12);
-            lblMode.Name = "lblMode";
-            lblMode.Size = new Size(75, 19);
-            lblMode.TabIndex = 0;
-            lblMode.Text = "Mode: Idle";
+            pictureBox1.Image = Properties.Resources.Logo;
+            pictureBox1.Location = new Point(3, -17);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(85, 85);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 9;
+            pictureBox1.TabStop = false;
             // 
             // panel1
             // 
@@ -235,6 +227,22 @@
             panelContent.Size = new Size(1107, 575);
             panelContent.TabIndex = 3;
             // 
+            // uiTimerClock
+            // 
+            uiTimerClock.Enabled = true;
+            uiTimerClock.Interval = 1000;
+            uiTimerClock.Tick += uiTimerClock_Tick;
+            // 
+            // lblDateTime
+            // 
+            lblDateTime.AutoSize = true;
+            lblDateTime.ForeColor = Color.White;
+            lblDateTime.Location = new Point(94, 15);
+            lblDateTime.Name = "lblDateTime";
+            lblDateTime.Size = new Size(45, 19);
+            lblDateTime.TabIndex = 10;
+            lblDateTime.Text = "label2";
+            // 
             // MainShellForm
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
@@ -254,6 +262,7 @@
             panelHeader.PerformLayout();
             panelStatus.ResumeLayout(false);
             panelStatus.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel1.ResumeLayout(false);
             ResumeLayout(false);
         }
@@ -262,18 +271,19 @@
 
         private Panel panelHeader;
         private Label lblTitle;
-        private Label lblUser;
         private Button btnConnect;
         private Button btnSignOut;
         private Panel panelStatus;
-        private Label lblClock;
-        private Label lblMsg;
-        private Label lblMode;
         private Panel panel1;
         private Button btnRetrieve;
         private Button btnConfig;
         private Button btnStore;
         private Panel panelContent;
-        private Panel panel2;
+        private Sunny.UI.UILedBulb ledOnline;
+        private Sunny.UI.UILedLabel uiLedLabelOnline;
+        private Label label1;
+        private PictureBox pictureBox1;
+        private System.Windows.Forms.Timer uiTimerClock;
+        private Label lblDateTime;
     }
 }

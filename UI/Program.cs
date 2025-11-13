@@ -28,9 +28,9 @@ namespace UI
             services.AddSingleton<IClock, SystemClock>();
             services.AddSingleton<IWarehouseIo, ModbusWarehouseIo>();
 
+            // UseCases
             services.AddSingleton<IStorePalletUseCase, StorePalletUseCase>();
             services.AddSingleton<IRetrievePalletUseCase, RetrievePalletUseCase>();
-
             services.AddSingleton<IResetOutputsUseCase, ResetOutputsUseCase>();
 
             // UserControls      

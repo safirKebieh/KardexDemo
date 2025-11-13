@@ -20,21 +20,29 @@ namespace UI
             cmbMode.SelectedIndex = 0;
         }
 
-        private void AppendLog(string msg)
+        private void AppendLog(string msg, Color color)
         {
             if (txtLog.IsDisposed) return;
             if (txtLog.InvokeRequired)
             {
-                txtLog.Invoke(new Action<string>(AppendLog), msg);
+                txtLog.Invoke(new Action<string, Color>(AppendLog), msg, color);
                 return;
             }
+            txtLog.SelectionStart = txtLog.TextLength;
+            txtLog.SelectionLength = 0;
+            txtLog.SelectionColor = color;
+
             txtLog.AppendText($"[{DateTime.Now:HH:mm:ss}] {msg}{Environment.NewLine}");
+            txtLog.SelectionColor = Color.Black;
         }
 
-        private async void btnStart_Click(object sender, EventArgs e)
+        private void AppendLog(string msg)
         {
-            AppendLog("Start clicked"); // للتأكد أن الحدث موصول
+            AppendLog(msg, Color.Black);
+        }
 
+        private async void BtnStartOperation_Click(object sender, EventArgs e)
+        {
             btnStart.Enabled = false;
 
             try
@@ -43,7 +51,7 @@ namespace UI
                 _cts = new CancellationTokenSource();
 
                 var slotNumber = (int)numSlot.Value;
-                var progress = new Progress<string>(AppendLog);
+                var progress = new Progress<string>(msg => AppendLog(msg));
 
                 bool ok;
                 var mode = cmbMode.SelectedItem?.ToString();
@@ -59,15 +67,15 @@ namespace UI
                     ok = await _store.RunAsync(slotNumber, progress, _cts.Token);
                 }
 
-                AppendLog(ok ? "Completed successfully." : "Completed with errors.");
+                AppendLog(ok ? "Completed successfully." : "Completed with errors.", ok ? Color.Green : Color.DarkRed);
             }
             catch (OperationCanceledException)
             {
-                AppendLog("Operation canceled.");
+                AppendLog("Operation canceled.", Color.DarkOrange);
             }
             catch (Exception ex)
             {
-                AppendLog("Error: " + ex.Message);
+                AppendLog("Error: " + ex.Message, Color.DarkRed);
             }
             finally
             {
@@ -75,7 +83,7 @@ namespace UI
             }
         }
 
-        private async void btnQuitterung_Click(object sender, EventArgs e)
+        private async void BtnQuitterung_Click(object sender, EventArgs e)
         {
             AppendLog("Quitterung clicked");
 
@@ -83,14 +91,14 @@ namespace UI
 
             try
             {
-                // Ask the new use case to execute the reset logic
-                var progress = new Progress<string>(AppendLog);
+                var progress = new Progress<string>(msg => AppendLog(msg));
+
                 await _reset.RunAsync(progress, _cts?.Token ?? CancellationToken.None);
-                AppendLog("✅ All outputs reset successfully.");
+                AppendLog("✅ All outputs reset successfully.", Color.Green);
             }
             catch (Exception ex)
             {
-                AppendLog($"❌ Quitterung failed: {ex.Message}");
+                AppendLog($"❌ Quitterung failed: {ex.Message}", Color.DarkRed);
             }
             finally
             {

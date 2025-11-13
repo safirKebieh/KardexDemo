@@ -27,7 +27,6 @@ namespace Application.UseCases.Handlers
             await Task.Delay(100, ct);
 
             await _io.WriteRegistersAsync(RegisterWrites.None().WithSlotNumber(55), ct);
-            progress?.Report("All outputs are now OFF.");
         }
     }
 }

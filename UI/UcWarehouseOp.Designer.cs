@@ -63,7 +63,7 @@
             btnStart.TabIndex = 3;
             btnStart.Text = "Start Operation";
             btnStart.UseVisualStyleBackColor = true;
-            btnStart.Click += btnStart_Click;
+            btnStart.Click += BtnStartOperation_Click;
             // 
             // label1
             // 
@@ -100,7 +100,7 @@
             btnQuitterung.TabIndex = 3;
             btnQuitterung.Text = "Acknowledge / Reset";
             btnQuitterung.UseVisualStyleBackColor = true;
-            btnQuitterung.Click += btnQuitterung_Click;
+            btnQuitterung.Click += BtnQuitterung_Click;
             // 
             // txtLog
             // 

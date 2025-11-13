@@ -8,36 +8,29 @@ public sealed class ModbusWarehouseIo : IWarehouseIo
 {
     private readonly IModbusService _modbus;
 
-    // ---- Address map (adjust if your scene differs) ----
-    // Discrete Inputs (DI) - "Input n" in Factory I/O
-    private const ushort DI_AtEntry = 0;   // "At Entry"
-    private const ushort DI_AtLoad = 1;   // "At Load"
-    private const ushort DI_MovingX = 7;   // "Moving X"
-    private const ushort DI_MovingZ = 8;   // "Moving Z"
-    private const ushort DI_Start = 9;   // "Start"  (not used here)
-    private const ushort DI_Reset = 10;  // "Reset"  (not used here)
-    private const ushort DI_Stop = 11;  // "Stop"   (not used here)
-    private const ushort DI_EStop = 12;  // "Emergency stop"
-    private const ushort DI_AtExit = 6;   // NEW
-    private const ushort DI_Auto = 13;  // "Auto"   (optional)
-    private const ushort DI_FactoryRun = 14;  // "FACTORY I/O (Running)" (optional)
-    private const ushort DI_CraneLeftLimit = 2;  // "Stacker Crane 1 Left Limit"
-    private const ushort DI_CraneMiddleLimit = 3;  // "Stacker Crane 1 Middle Limit"
+    // ---- Address map ----
+    // Discrete Inputs (DI) - "Input" in Factory I/O
+    private const ushort DI_AtEntry = 0;   
+    private const ushort DI_AtLoad = 1;   
+    private const ushort DI_MovingX = 7;  
+    private const ushort DI_MovingZ = 8; 
+    private const ushort DI_EStop = 12;  
+    private const ushort DI_AtExit = 6;   
+    private const ushort DI_CraneLeftLimit = 2;  
+    private const ushort DI_CraneMiddleLimit = 3;  
     private const ushort DI_CraneRightLimit = 4;
 
-    // Coils (DO) - "Coil n" in Factory I/O
-    private const ushort DO_EntryConv = 0;   // "Entry Conveyor"
-    private const ushort DO_LoadConv = 1;   // "Load Conveyor"
-    private const ushort DO_ExitConv = 6;   // "Exit Conveyor"
-    private const ushort DO_CraneLeft = 2;  // "Stacker Crane 1 (Left)"
-    private const ushort DO_CraneLift = 3;  // "Stacker Crane 1 Lift"
+    // Coils (DO) - "Coil" in Factory I/O
+    private const ushort DO_EntryConv = 0;   
+    private const ushort DO_LoadConv = 1;  
+    private const ushort DO_ExitConv = 6;  
+    private const ushort DO_CraneLeft = 2;  
+    private const ushort DO_CraneLift = 3; 
     private const ushort DO_CraneRight = 4;
-    private const ushort DO_UnloadConv = 5;  // NEW
-
-    // The rest (Forks/Lift/Start light/Reset light/Stop light) are available if needed.
+    private const ushort DO_UnloadConv = 5;  
 
     // Holding Registers
-    private const ushort HR_TargetSlot = 0;   // "Target Position" (Numerical mode)
+    private const ushort HR_TargetSlot = 0;  
 
     public ModbusWarehouseIo(IModbusService modbus) => _modbus = modbus;
 
@@ -116,8 +109,6 @@ public sealed class ModbusWarehouseIo : IWarehouseIo
             ushort value = (ushort)writes.SlotNumber.Value;
             await _modbus.WriteHoldingRegisterAsync(HR_TargetSlot, value, ct);
         }
-
-        // Future: support analog X/Z or 5-bit addressing here if you change modes.
     }
 
     private static bool Safe(bool[] arr, int index) =>

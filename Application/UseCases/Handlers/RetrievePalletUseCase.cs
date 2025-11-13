@@ -11,8 +11,8 @@ namespace Application.UseCases.Handlers
         private readonly IClock _clock;
 
         private const int CraneIdleSlot = 55;
-        private const int Rows = 6;
-        private const int Cols = 9;           
+        private const int TotalRows = 6;
+        private const int totalColumns = 9;           
 
         public RetrievePalletUseCase(IWarehouseIo io, IWarehouseInventory inventory, IClock clock)
         {
@@ -123,16 +123,14 @@ namespace Application.UseCases.Handlers
             }
         }
 
-        // ===== helpers (نفس أسلوب Store) =====
-
-        private static bool IsValidSlotNumber(int slot) => slot >= 1 && slot <= Rows * Cols;
+        private static bool IsValidSlotNumber(int slot) => slot >= 1 && slot <= TotalRows * totalColumns;
 
         private static (int row, int col) DecodeSlot(int slot)
         {
-            int idx = slot - 1; // 0-based
-            int row = idx / Cols;
-            int col = idx % Cols;
-            return (row, col);
+            int index = slot - 1; // 0-based
+            int row = index / totalColumns;
+            int column = index % totalColumns;
+            return (row, column);
         }
 
         private async Task<InputSnapshot> WaitUntilAsync(Func<InputSnapshot, bool> predicate, CancellationToken ct)

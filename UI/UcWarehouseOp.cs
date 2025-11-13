@@ -15,10 +15,9 @@ namespace UI
             InitializeComponent();
             _store = store;
             _retrieve = retrieve;
+            _reset = reset;
 
             cmbMode.SelectedIndex = 0;
-            txtLog.ReadOnly = true; 
-            _reset = reset;
         }
 
         private void AppendLog(string msg)

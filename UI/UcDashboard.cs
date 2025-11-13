@@ -16,5 +16,15 @@ namespace UI
         {
             InitializeComponent();
         }
+
+        public void SetSystemStatus(bool isConnected, string ip, int port, int slaveId)
+        {
+            lblConnectionValue.Text = isConnected ? "Online" : "Offline";
+            lblConnectionValue.ForeColor = isConnected ? Color.Lime : Color.DarkGray;
+
+            lblIpValue.Text = ip;
+            lblPortValue.Text = port.ToString();
+            lblSlaveValue.Text = slaveId.ToString();
+        }
     }
 }

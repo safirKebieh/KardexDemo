@@ -36,6 +36,8 @@ namespace UI
             services.AddSingleton<IStorePalletUseCase, StorePalletUseCase>();
             services.AddSingleton<IRetrievePalletUseCase, RetrievePalletUseCase>();
             services.AddSingleton<IResetOutputsUseCase, ResetOutputsUseCase>();
+            services.AddSingleton<IClearAllSlotsUseCase, ClearAllSlotsUseCase>();
+
 
             // UserControls      
             services.AddTransient<UcDashboard>();

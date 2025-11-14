@@ -33,9 +33,10 @@
             btnStart = new Button();
             label1 = new Label();
             label3 = new Label();
-            label4 = new Label();
             btnQuitterung = new Button();
             txtLog = new RichTextBox();
+            btnClearLog = new Button();
+            btnClearInventory = new Button();
             ((System.ComponentModel.ISupportInitialize)numSlot).BeginInit();
             SuspendLayout();
             // 
@@ -57,7 +58,7 @@
             // 
             // btnStart
             // 
-            btnStart.Location = new Point(13, 100);
+            btnStart.Location = new Point(3, 184);
             btnStart.Name = "btnStart";
             btnStart.Size = new Size(160, 30);
             btnStart.TabIndex = 3;
@@ -83,18 +84,9 @@
             label3.TabIndex = 7;
             label3.Text = "Target Slot";
             // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new Point(3, 202);
-            label4.Name = "label4";
-            label4.Size = new Size(83, 15);
-            label4.TabIndex = 8;
-            label4.Text = "Operation Log";
-            // 
             // btnQuitterung
             // 
-            btnQuitterung.Location = new Point(13, 136);
+            btnQuitterung.Location = new Point(169, 184);
             btnQuitterung.Name = "btnQuitterung";
             btnQuitterung.Size = new Size(160, 30);
             btnQuitterung.TabIndex = 3;
@@ -111,12 +103,33 @@
             txtLog.TabIndex = 9;
             txtLog.Text = "";
             // 
+            // btnClearLog
+            // 
+            btnClearLog.Location = new Point(335, 184);
+            btnClearLog.Name = "btnClearLog";
+            btnClearLog.Size = new Size(160, 30);
+            btnClearLog.TabIndex = 10;
+            btnClearLog.Text = "Clear Log";
+            btnClearLog.UseVisualStyleBackColor = true;
+            btnClearLog.Click += btnClearLog_Click;
+            // 
+            // btnClearInventory
+            // 
+            btnClearInventory.Location = new Point(501, 184);
+            btnClearInventory.Name = "btnClearInventory";
+            btnClearInventory.Size = new Size(160, 30);
+            btnClearInventory.TabIndex = 10;
+            btnClearInventory.Text = "Clear Warehouse";
+            btnClearInventory.UseVisualStyleBackColor = true;
+            btnClearInventory.Click += btnClearInventory_Click;
+            // 
             // UcWarehouseOp
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(btnClearInventory);
+            Controls.Add(btnClearLog);
             Controls.Add(txtLog);
-            Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(label1);
             Controls.Add(btnQuitterung);
@@ -137,8 +150,9 @@
         private Button btnStart;
         private Label label1;
         private Label label3;
-        private Label label4;
         private Button btnQuitterung;
         private RichTextBox txtLog;
+        private Button btnClearLog;
+        private Button btnClearInventory;
     }
 }

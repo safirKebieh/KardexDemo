@@ -8,16 +8,21 @@ namespace UI
         private readonly IStorePalletUseCase _store;
         private readonly IRetrievePalletUseCase _retrieve;
         private readonly IResetOutputsUseCase _reset;
+        private readonly IClearAllSlotsUseCase _clearSlots;
+
         private CancellationTokenSource? _cts;
 
-        public UcWarehouseOp(IStorePalletUseCase store, IRetrievePalletUseCase retrieve, IResetOutputsUseCase reset)
+        public UcWarehouseOp(IStorePalletUseCase store, IRetrievePalletUseCase retrieve,
+            IResetOutputsUseCase reset, IClearAllSlotsUseCase clearSlots)
         {
             InitializeComponent();
             _store = store;
             _retrieve = retrieve;
             _reset = reset;
+            _clearSlots = clearSlots;
 
             cmbMode.SelectedIndex = 0;
+
         }
 
         private void AppendLog(string msg, Color color)
@@ -34,6 +39,9 @@ namespace UI
 
             txtLog.AppendText($"[{DateTime.Now:HH:mm:ss}] {msg}{Environment.NewLine}");
             txtLog.SelectionColor = Color.Black;
+
+            txtLog.SelectionStart = txtLog.Text.Length;
+            txtLog.ScrollToCaret();
         }
 
         private void AppendLog(string msg)
@@ -103,6 +111,26 @@ namespace UI
             finally
             {
                 btnQuitterung.Enabled = true;
+            }
+        }
+
+        private void btnClearLog_Click(object sender, EventArgs e)
+        {
+            txtLog.Clear();
+        }
+
+        private async void btnClearInventory_Click(object sender, EventArgs e)
+        {
+            AppendLog("Clearing all inventory slots…");
+
+            try
+            {
+                await _clearSlots.RunAsync();
+                AppendLog("All slots marked as EMPTY.", Color.LimeGreen);
+            }
+            catch (Exception ex)
+            {
+                AppendLog($"Error clearing slots: {ex.Message}", Color.Red);
             }
         }
     }

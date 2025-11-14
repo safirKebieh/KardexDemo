@@ -29,7 +29,6 @@ namespace Application.UseCases.Handlers
         {
             void Log(string m) => progress?.Report(m);
 
-            // 1) Validate slot
             if (!IsValidSlotNumber(slotNumber))
             {
                 Log("❌ Invalid slot. Use 1..54.");

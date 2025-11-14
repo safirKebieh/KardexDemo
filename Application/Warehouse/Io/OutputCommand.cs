@@ -1,6 +1,5 @@
 ﻿namespace Application.Warehouse.Io;
 
-/// Desired changes to outputs. Nullable = "do not change".
 public sealed record OutputCommand(
     bool? InfeedConveyor = null,
     bool? ToCraneConveyor = null,

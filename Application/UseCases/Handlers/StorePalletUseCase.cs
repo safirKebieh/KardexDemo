@@ -1,6 +1,6 @@
-﻿using Application.Ports;              // IClock
-using Application.Warehouse;          // IWarehouseInventory, ICraneAddressEncoder
-using Application.Warehouse.Io;       // IWarehouseIo, OutputCommand, RegisterWrites
+﻿using Application.Ports;              
+using Application.Warehouse;         
+using Application.Warehouse.Io;       
 
 
 namespace Application.UseCases.Handlers

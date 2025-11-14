@@ -9,28 +9,29 @@ public sealed class ModbusWarehouseIo : IWarehouseIo
     private readonly IModbusService _modbus;
 
     // ---- Address map ----
-    // Discrete Inputs (DI) - "Input" in Factory I/O
+
+    // Discrete Inputs - "Input" in Factory I/O
     private const ushort DI_AtEntry = 0;   
-    private const ushort DI_AtLoad = 1;   
+    private const ushort DI_AtLoad = 1;
+    private const ushort DI_CraneLeftLimit = 2;
+    private const ushort DI_CraneMiddleLimit = 3;
+    private const ushort DI_CraneRightLimit = 4;
+    private const ushort DI_AtExit = 6;
     private const ushort DI_MovingX = 7;  
     private const ushort DI_MovingZ = 8; 
     private const ushort DI_EStop = 12;  
-    private const ushort DI_AtExit = 6;   
-    private const ushort DI_CraneLeftLimit = 2;  
-    private const ushort DI_CraneMiddleLimit = 3;  
-    private const ushort DI_CraneRightLimit = 4;
-
+ 
     // Coils (DO) - "Coil" in Factory I/O
     private const ushort DO_EntryConv = 0;   
-    private const ushort DO_LoadConv = 1;  
-    private const ushort DO_ExitConv = 6;  
-    private const ushort DO_CraneLeft = 2;  
-    private const ushort DO_CraneLift = 3; 
+    private const ushort DO_LoadConv = 1;
+    private const ushort DO_CraneLeft = 2;
+    private const ushort DO_CraneLift = 3;
     private const ushort DO_CraneRight = 4;
-    private const ushort DO_UnloadConv = 5;  
+    private const ushort DO_UnloadConv = 5;
+
 
     // Holding Registers
-    private const ushort HR_TargetSlot = 0;  
+    private const ushort HR_StackerCraneTargetPosition = 0;  
 
     public ModbusWarehouseIo(IModbusService modbus) => _modbus = modbus;
 
@@ -84,10 +85,7 @@ public sealed class ModbusWarehouseIo : IWarehouseIo
         if (command.ToCraneConveyor.HasValue)
             await SetCoilAsync(DO_LoadConv, command.ToCraneConveyor.Value);
 
-        if (command.ExitConveyor.HasValue)
-            await SetCoilAsync(DO_ExitConv, command.ExitConveyor.Value);
-
-        if (command.UnloadConveyor.HasValue)                 // NEW
+        if (command.UnloadConveyor.HasValue)                
             await SetCoilAsync(DO_UnloadConv, command.UnloadConveyor.Value);
 
         if (command.CraneLeft.HasValue)
@@ -96,7 +94,7 @@ public sealed class ModbusWarehouseIo : IWarehouseIo
         if (command.CraneLift.HasValue)
             await SetCoilAsync(DO_CraneLift, command.CraneLift.Value);
 
-        if (command.CraneRight.HasValue)                 // NEW
+        if (command.CraneRight.HasValue)                
             await SetCoilAsync(DO_CraneRight, command.CraneRight.Value);
     }
 
@@ -107,7 +105,7 @@ public sealed class ModbusWarehouseIo : IWarehouseIo
         if (writes.SlotNumber.HasValue)
         {
             ushort value = (ushort)writes.SlotNumber.Value;
-            await _modbus.WriteHoldingRegisterAsync(HR_TargetSlot, value, ct);
+            await _modbus.WriteHoldingRegisterAsync(HR_StackerCraneTargetPosition, value, ct);
         }
     }
 
